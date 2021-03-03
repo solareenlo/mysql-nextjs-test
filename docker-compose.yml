@@ -1,0 +1,22 @@
+version: '3'
+services:
+    db:
+        image: mysql:latest
+        container_name: mysql-nextjs
+        command: --default-authentication-plugin=mysql_native_password
+        volumes:
+          - ./db:/var/lib/mysql
+          - ./src/my.sql:/etc/mysql/conf.d/my.cnf
+          - ./src/db_init:/docker-entrypoint-initdb.d
+        ports:
+            - "3306:3306"
+        restart: always
+        environment:
+          MYSQL_ALLOW_EMPTY_PASSWORD: "no"
+          MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+          MYSQL_DATABASE: ${MYSQL_DATABASE}
+          MYSQL_USER: ${MYSQL_USER}
+          MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+          TZ: 'Asia/Tokyo'
+volumes:
+    db_data:
