@@ -1,8 +1,17 @@
 # mysql-nextjs-test
 - https://github.com/solareenlo/nextjs-mysql-test の DB．
+- nextjs-mysql-test 用の mysql を docker-compose で動かす．
+
+## Prerequisites
+- Ubuntu 20.04
+- ufw
+- [Install Docker Engine on Ubuntu](https://docs.docker.com/engine/install/ubuntu/)
+- [Install Docker Compose](https://docs.docker.com/compose/install/)
 
 ## Usage
 ```sh
+git clone git@github.com:solareenlo/mysql-nextjs-test.git
+cd mysql-nextjs-test
 cp .env.example .env
 vim .env
 # 以下の4つを .env 内に設定する．
